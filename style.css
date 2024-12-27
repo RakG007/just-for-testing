@@ -11,6 +11,7 @@ body {
     align-items: center;
     background: url('images/background1.jpeg') no-repeat center center fixed;
     background-size: cover;
+    backdrop-filter: blur(5px);
 }
 
 /* Container Styles */
@@ -21,6 +22,7 @@ body {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
     max-width: 600px;
     animation: fadeIn 1s;
+    border: 2px solid #9c27b0;
 }
 
 @keyframes fadeIn {
@@ -31,10 +33,14 @@ body {
 h1 {
     font-size: 2.5em;
     margin-bottom: 20px;
+    color: #9c27b0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid #9c27b0;
+    padding-bottom: 10px;
 }
 
 /* Button Styles */
-.mode-button, .back-button, .start-button {
+.mode-button, .back-button, .start-button, .avatar-button {
     background-color: #5f2b91;
     color: #fff;
     border: none;
@@ -42,18 +48,44 @@ h1 {
     font-size: 1.1em;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #9c27b0;
 }
 
-.mode-button:hover, .back-button:hover, .start-button:hover {
+.mode-button::before, .back-button::before, .start-button::before, .avatar-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.15);
+    transition: all 0.75s;
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.mode-button:hover::before, .back-button:hover::before, .start-button:hover::before, .avatar-button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.mode-button:hover, .back-button:hover, .start-button:hover, .avatar-button:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(95, 43, 145, 0.5);
+    box-shadow: 0 0 20px rgba(95, 43, 145, 0.5), 0 0 30px rgba(95, 43, 145, 0.5);
+    background-color: #7f4bb1;
 }
 
 /* Game Info Styles */
 #gameInfo {
     margin-top: 20px;
     font-size: 1.2em;
+    color: #9c27b0;
+    border-top: 2px solid #9c27b0;
+    padding-top: 10px;
 }
 
 /* Video Container Styles */
@@ -97,6 +129,7 @@ video {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 5px 10px;
     border-radius: 5px;
+    border: 1px solid #9c27b0;
 }
 
 /* Emoji Overlay Styles */
@@ -216,4 +249,38 @@ video {
 
 .slide-in-right {
     animation: slideInRight 1s ease-out forwards;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { border-color: transparent; }
+}
+
+.dynamic-text {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 3px solid;
+    font-size: 2.5em;
+    animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+}
+
+/* Avatar Container Styles */
+#avatarContainer {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #9c27b0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    margin-top: 10px;
 }

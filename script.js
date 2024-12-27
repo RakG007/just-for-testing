@@ -112,9 +112,6 @@ function startChallengeLogic(video) {
 
                 showEmoji(emotionsMap[detectedEmotion]);
 
-                // Remove gender detection display
-                document.getElementById('gender').textContent = 'N/A'; // Ensure gender is not displayed
-
                 if (detectedEmotion === targetEmotion) {
                     score++;
                     targetEmotion = Object.keys(emotionsMap)[Math.floor(Math.random() * Object.keys(emotionsMap).length)];
@@ -141,7 +138,7 @@ function startAgeGenderDetectionLogic(video) {
                     fixedAge = Math.round(age);
                 }
                 document.getElementById('age').textContent = fixedAge;
-                document.getElementById('gender').textContent = gender; // This will only show during ageGenderDetection
+                document.getElementById('gender').textContent = gender;
                 showEmoji(`${emotionsMap[detectedEmotion]} ${genderMap[gender]}`);
             }
         }, 2000);
