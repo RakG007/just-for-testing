@@ -6,7 +6,7 @@
     <title>Emotion Recognition Game</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>  
+<body>
     <div class="floating-emojis">
         <div class="floating-emoji">😄</div>
         <div class="floating-emoji">😢</div>
@@ -17,19 +17,8 @@
         <div class="floating-emoji">😐</div>
         <div class="floating-emoji">😊</div>
     </div>
-    <div class="container" style="text-align: center; font-weight: bold;">
-        <h1 class="loader">
-            <div class="words">
-                <span class="word"><b>Emotion</b></span>
-                <span class="word"><b>Gender</b></span>
-                <span class="word"><b>Age</b></span>
-                <span class="word"><b>Emotion</b></span>
-                <span class="word"><b>Emotion</b></span>
-                <span class="word"><b>Age</b></span>
-                <!-- <span class="word"><b>Emotion</b></span> -->
-            </div>
-            <span> <b>RECOGNITION GAME</b></span>
-        </h1>
+    <div class="container">
+        <h1 class="dynamic-text">Emotion Recognition Game</h1>
         
         <!-- Mode Selection Screen -->
         <div id="modeSelection" class="fade-in">
@@ -44,21 +33,8 @@
             <button class="back-button" onclick="goBack()">Back</button>
             <button class="start-button" onclick="startGame()">Start Game</button>
             
-            <!-- Loader with Transition -->
-            <div class="card">
-                <div class="loader">
-                    <p>Analyzing</p>
-                    <div class="words">
-                        <span class="word">Emotion Recognition Game</span>
-                        <span class="word">Gender Recognition Game</span>
-                        <span class="word">Age Recognition Game</span>
-                        <span class="word">Emotion Recognition Game</span>
-                    </div>
-                </div>
-            </div>
-            
             <!-- Video Container with Emoji Overlay -->
-            <div id="videoContainer" style="position: relative; display: none;">
+            <div id="videoContainer" style="position: relative;">
                 <video id="video" autoplay muted></video>
                 <div id="emojiDisplay" class="emoji-overlay" style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); font-size: 4em; pointer-events: none;"></div>
             </div>
